@@ -1,0 +1,114 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+  Menu
+{% endblock %}
+
+{% block body %}
+<div class="top">
+  <p>Logged in as: <b>{{ user.username }}</b></p>
+  <a href="{% url 'logout' %}" class="logout">logout</a>
+</div>
+<hr>
+  {% if  message %}
+    <div>
+      {{ message }}
+    </div>
+  {% endif %}
+  <div id="nav">
+    <div id="header">
+      <h2 class="header">WELCOME TO PINOCHIO'S PIZZA</h2>
+      <p id="menu">Menu</p>
+    </div>
+    <div class="cart">
+      <a href="" class="order"><p>My Orders</p></a>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="menu-item">
+      <h4 class="heading">Regular Pizza</h4>
+      <hr>
+      <div class="pizza">
+        {% for pizza in regular %}
+          <p >{{ pizza.name }}</p>
+          <div class="prices" id="price">
+            <p>{{ pizza.price_one }}</p>
+          <p>{{ pizza.price_two }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Silican Pizza</h4>
+      <hr>
+      <div class="pizza">
+        {% for pizza in silican %}
+          <p>{{ pizza.name }}</p>
+          <div class="prices" id="price">
+            <p>{{ pizza.price_one }}</p>
+          <p>{{ pizza.price_two }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Toppings</h4>
+      <hr>
+      <div id="toppings">
+        {% for topping in toppings %}
+          <p>{{ topping }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Subs</h4>
+      <hr>
+      <div class="subs">
+        {% for sub in subs %}
+          <p>{{ sub.name }}</p>
+          <div class="prices" id="price">
+            <p>{{ sub.price_one }}</p>
+            <p>{{ sub.price_two }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Pasta</h4>
+      <hr>
+      <div class="pasta">
+        {% for pastas in pasta %}
+          <p class="pasta">{{ pastas.name }}</p>
+          <div class="prices" id="prices">
+            <p>{{ pastas.price }}</p>
+          </div> 
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Salads</h4>
+      <hr>
+      <div class="salads">
+        {% for salad in salads %}
+          <p class="salads">{{ salad.name }}</p>
+          <div class="prices" id="prices">
+            <p>{{ salad.price }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="menu-item">
+      <h4 class="heading">Dinner Platers</h4>
+      <hr> 
+      <div class="dinner_platter">
+        {% for dinners in dinner %}
+          <p class="dinner_platter">{{ dinners.name}}</p>
+          <div class="prices" id="prices">
+            <p>{{ dinners.price_one }}</p>
+            <p>{{ dinners.price_two }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

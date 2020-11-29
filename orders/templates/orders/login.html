@@ -1,0 +1,26 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block body %}
+  <h2>Login</h2>
+  <hr>
+  {% if  message %}
+    <div>
+      <p>{{ message }}</p>
+    </div>
+  {% endif %}
+  <hr>
+  <form action="{% url 'login' %}" method="POST" class="form-group">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="username" placeholder="Enter username" autocomplete="off">
+    <br>
+    <input type="password" class="form-control" name="password" placeholder="Enter password">
+    <br>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <br><br>
+    <h6>Not yet registered, <a href="{% url 'register' %}">Register here</a></h6>
+  </form>
+{% endblock %}
