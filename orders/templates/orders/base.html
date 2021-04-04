@@ -9,26 +9,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <style>
     body {
-      margin: 10px;
+      margin-left: 5px;
       overflow-x: hidden;
-      background-color: rgb(255, 255, 255)
+      background-color: rgb(255, 255, 255);
+      margin-bottom: -10px;
     }
 
     .top {
       position: fixed;
-      width: 99.99%;
-      margin-left: -10px;
+      width: 100vw;
+      padding-right: 20px;
+      padding-left: 10px;
       display: flex;
-      background-color: rgb(2, 204, 255);
+      background-color: rgb(5, 255, 151);
       top: 0px;
       justify-content: space-between;
-      margin-bottom: -20px;
       height: 28px;
-    }
-
-    #toppings {
-      text-align: center;
-      font-size: 20px;
+      margin-left: -10px;
     }
 
     #menu {
@@ -38,6 +35,20 @@
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
+    .message {
+      background-color: red;
+      width: 100%;
+      color: white;
+      padding-left: 10px;
+    }
+
+    .success {
+      background-color: rgb(76, 207, 0);
+      color: white;
+      padding-left: 10px;
+      width: 100%;
+    }
+
     .logout {
       color: black;
       text-decoration: none;
@@ -45,16 +56,20 @@
 
     .menu {
       display: grid;
-      grid-column-gap: 50px;
-      grid-row-gap: 40px;
+      justify-content: center;
+      align-items: baseline;
+      column-gap: 50px;
+      row-gap: 50px;
       grid-template-columns: auto auto;
-      margin-top: 160px;
-      padding: 10px;
+      margin-top: 120px;
+      padding-top: 50px;
+      width: 100vw;
+      margin-left: -10px;
+      background-color: #212121;
     }
 
-    .menu-item {
-      box-shadow: 0px 1px 5px 1px rgb(0, 0, 0);
-      background-color: rgb(255, 255, 255);
+    #order {
+      text-align: center;
     }
 
     .heading {
@@ -65,31 +80,31 @@
 
     #nav {
       display: flex;
-      flex-wrap: wrap;
-      position: fixed;
+      height: 110px;
       justify-content: space-evenly;
-      background-color: rgb(179, 255, 2);
-      width: 105%;
-      margin-left: -10px;
+      align-items: center;
       margin-top: -5px;
-      text-align: center;
+      position: fixed;
+      margin-left: -10px;
+      width: 100vw;
+      background-color: white;
+      box-shadow: 0px 10px 10px -5px blue;
     }
 
-    .cart {
-      margin-top: 50px;
-      font-size: 20px;
-      font-weight: bold;
+    #cart {
+      color: black;
     }
 
     .order {
-      color: rgb(0, 183, 255);
-      
+      font-size: 25px;
+      font-weight: bold;
+      color: rgb(253, 186, 0);
+      letter-spacing: 2px;
     }
 
     .order:hover {
       text-decoration: none;
       color: red;
-      letter-spacing: 2px;
     }
 
     a:hover {
@@ -97,94 +112,63 @@
     }
 
     .header {
-      margin-top: 50px;
       text-align: center;
       color: rgb(0, 0, 0);
+      font-size: 40px;
       letter-spacing: 3px;
-      font-family: cursive;
-    }
-
-    #price {
-      color: aqua;
-    }
-
-    #buy {
-      height: 25px;
-      width: 50px;
-      font-size: 12px;
-      border: 1px solid rgb(0, 255, 21);
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     hr {
       background-color: rgb(0, 255, 21);
     }
 
-    td {
-      font-size: 20px;
-      width: 40%;
-    }
-
     table {
       margin: auto;
       margin-bottom: 10px;
-      width: 90%;
+      width: 45vw;
+      border: 1px solid rgb(255, 255, 255);
+      box-shadow: 0px 0px 10px -5px white;
     }
 
-    .price {
-      margin-left: 520px;
-      margin-top: -50px;
-      margin-right: -400px;
+    #table {
+      margin-top: 0px;
     }
 
-    .pasta {
-      margin: 20px;
+    .btn {
+      width: 5vw;
+    }
+
+    #pasta {
+      margin-top: 0px;
+    }
+
+    th {
       font-size: 20px;
+      color: rgb(0, 207, 0);
+      font-weight: normal;
+      text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
-    .salads {
-      margin: 20px;
-      font-size: 20px;
-    }
-
-    .pizza {
-      margin: 20px;
-      margin-left: 50px;
-      font-size: 20px;
-    }
-
-    #price {
-      margin-top: -42px;
-      color: black;
-      margin-left: 100px;
-    }
-
-    #prices {
-      margin-top: -48px;
-      color: black;
-      margin-left: 100px;
-    }
-
-    .dinner_platter {
-      margin: 20px;
-      font-size: 20px;
+    #size > th {
+      font-weight: bold;
+      color: white;
     }
 
     td {
-      font-weight: bold;
-      word-spacing: 200px
+      padding: 10px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 25px;
+      color: white;
     }
 
-    .subs {
-      font-size: 20px;
-      margin: 20px;
-    }
-
-    .prices {
-      display: flex;
-      margin-top: -25px;
-      margin-left: 75px;
-      margin-right: -80px;
-      justify-content: space-evenly;
+    #th {
+      text-align: center;
+      font-size: 30px;
+      border-bottom: 1px solid rgb(3, 212, 3);
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     @media only screen and (max-width: 768px) {
@@ -206,28 +190,12 @@
         margin-top: -1px;
       }
 
-      .pizza {
-        font-size: 16px;
+      table {
+        width: 95vw;
       }
 
-      .salads {
-        font-size: 16px;
-      }
-
-      .pasta { 
-        font-size: 16px;
-      }
-
-      #toppings {
-        font-size: 16px;
-      }
-
-      .dinner_platter {
-        font-size: 16px;
-      }
-
-      .subs {
-        font-size: 16px;
+      .cart {
+        margin-right: 55px;
       }
     }
 

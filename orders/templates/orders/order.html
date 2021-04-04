@@ -1,0 +1,39 @@
+{% extends "orders/base.html" %}
+
+{% block title %}
+  Cart
+{% endblock %}
+
+{% block body %}
+  <h2 id="order">Your Orders Will Appear Here</h2>
+  {% if message %}
+    <div class="success">
+      {{ message }}
+    </div>
+  {% endif %}
+  <div class="items">
+    <div class="order-items">
+      <h1>My Orders</h1>
+      <hr>
+        <h4>Type of Regular pizza</h4>
+          <select>
+            {% for product in products %}
+              <option value="">With {{ product.product_one.name }}</option>
+            {% endfor %}
+          </select>
+          <h4>Size</h4>
+          <select>
+              <option value="">Small</option>
+              <option value="">Large</option>
+          </select>
+        <br><br>
+      <button class="btn btn-danger">Remove</button>
+      <hr>
+      <a href="{% url 'index' %}">
+        <button class="btn btn-success">Continue Shopping</button>
+      </a>
+      <br><br>
+      <button class="btn btn-primary">Checkout</button>
+    </div>
+  </div>
+{% endblock %}

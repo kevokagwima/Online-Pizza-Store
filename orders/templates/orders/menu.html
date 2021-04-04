@@ -1,12 +1,12 @@
 {% extends "orders/base.html" %}
 
 {% block title %}
-  Menu
+  Home
 {% endblock %}
 
 {% block body %}
 <div class="top">
-  <p>Logged in as: <b>{{ user.username }}</b></p>
+  <p>Welcome: <b>{{ user.username }}</b></p>
   <a href="{% url 'logout' %}" class="logout">logout</a>
 </div>
 <hr>
@@ -16,99 +16,117 @@
     </div>
   {% endif %}
   <div id="nav">
-    <div id="header">
-      <h2 class="header">WELCOME TO PINOCHIO'S PIZZA</h2>
-      <p id="menu">Menu</p>
-    </div>
-    <div class="cart">
-      <a href="" class="order"><p>My Orders</p></a>
+    <h2 class="header">WELCOME TO PINOCHIO'S PIZZA</h2>
+    <div class="order">
+      <a href="{% url 'cart' %}" class="order"><p>My Orders</p></a>
     </div>
   </div>
   <div class="menu">
-    <div class="menu-item">
-      <h4 class="heading">Regular Pizza</h4>
-      <hr>
-      <div class="pizza">
-        {% for pizza in regular %}
-          <p >{{ pizza.name }}</p>
-          <div class="prices" id="price">
-            <p>{{ pizza.price_one }}</p>
-          <p>{{ pizza.price_two }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Silican Pizza</h4>
-      <hr>
-      <div class="pizza">
-        {% for pizza in silican %}
-          <p>{{ pizza.name }}</p>
-          <div class="prices" id="price">
-            <p>{{ pizza.price_one }}</p>
-          <p>{{ pizza.price_two }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Toppings</h4>
-      <hr>
-      <div id="toppings">
-        {% for topping in toppings %}
-          <p>{{ topping }}</p>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Subs</h4>
-      <hr>
-      <div class="subs">
-        {% for sub in subs %}
-          <p>{{ sub.name }}</p>
-          <div class="prices" id="price">
-            <p>{{ sub.price_one }}</p>
-            <p>{{ sub.price_two }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Pasta</h4>
-      <hr>
-      <div class="pasta">
-        {% for pastas in pasta %}
-          <p class="pasta">{{ pastas.name }}</p>
-          <div class="prices" id="prices">
-            <p>{{ pastas.price }}</p>
-          </div> 
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Salads</h4>
-      <hr>
-      <div class="salads">
-        {% for salad in salads %}
-          <p class="salads">{{ salad.name }}</p>
-          <div class="prices" id="prices">
-            <p>{{ salad.price }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="menu-item">
-      <h4 class="heading">Dinner Platers</h4>
-      <hr> 
-      <div class="dinner_platter">
-        {% for dinners in dinner %}
-          <p class="dinner_platter">{{ dinners.name}}</p>
-          <div class="prices" id="prices">
-            <p>{{ dinners.price_one }}</p>
-            <p>{{ dinners.price_two }}</p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
+    <table>
+      <th id="th" colspan="4">Regular Pizza</th>
+      <tr id="size">
+        <th></th>
+        <th>Small</th>
+        <th>Large </th>
+        <th></th>
+      </tr>
+      {% for pizza in regular %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+          <th>$ {{ pizza.small }}</th>
+          <th>$ {{ pizza.large }}</th>
+          <th><button class="btn btn-success">Buy</button></th>
+        </tr>
+      {% endfor %}
+    </table>
+    <table>
+      <th id="th" colspan="4">Silican Pizza</th>
+      <tr id="size">
+        <th></th>
+        <th>Small</th>
+        <th>Large </th>
+        <th></th>
+      </tr>
+      {% for pizza in silican %}
+        <tr>
+          <td>{{ pizza.name }}</td>
+          <th>$ {{ pizza.small }}</th>
+          <th>$ {{ pizza.large }}</th>
+          <th><button class="btn btn-success">Buy</button></th>
+        </tr>
+      {% endfor %}
+    </table>
+    <table id="table">
+      <th id="th" colspan="3">Toppings</th>
+      {% for topping in toppings %}
+        <tr>
+          <td style="text-align: center;" colspan="3">{{ topping.name }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <table>
+      <th id="th" colspan="4">Subs</th>
+      <tr id="size">
+        <th></th>
+        <th>Small</th>
+        <th>Large </th>
+        <th></th>
+      </tr>
+      {% for sub in subs %}
+        <tr>
+          <td>{{ sub.name }}</td>
+          <th>$ {{ sub.small }}</th>
+          <th>$ {{ sub.large }}</th>
+          <th><button class="btn btn-success">Add</button></th>
+        </tr>
+      {% endfor %}
+    </table>
+    <table id="pasta">
+      <th id="th" colspan="3">Pasta</th>
+      <tr id="size">
+        <th></th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      {% for pastas in pasta %}
+        <tr>
+          <td>{{ pastas.name }}</td>
+          <th>$ {{ pastas.price }}</th>
+          <th><button class="btn btn-success">buy</button></th>
+        </tr>
+      {% endfor %}
+    </table>
+    <table>
+      <th id="th" colspan="3">Salads</th>
+      <tr id="size">
+        <th></th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+      {% for salad in salads %}
+        <tr>
+          <td>{{ salad.name }}</td>
+          <th>$ {{ salad.price }}</th>
+          <th><button class="btn btn-success">buy</button></th>
+        </tr>
+      {% endfor %}
+    </table>
+    <table>
+      <th id="th" colspan="4">Dinner Platters</th>
+      <tr id="size">
+        <th></th>
+        <th>Small</th>
+        <th>Large </th>
+        <th></th>
+      </tr>
+      {% for dinners in dinner %}
+        <tr>
+          <td>{{ dinners.name }}</td>
+          <th>$ {{ dinners.small }}</th>
+          <th>$ {{ dinners.large }}</th>
+          <th><button class="btn btn-success">buy</button></th>
+        </tr>
+      {% endfor %}
+    </table>
   </div>
 {% endblock %}
